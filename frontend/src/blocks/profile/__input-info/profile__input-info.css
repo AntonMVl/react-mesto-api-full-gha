@@ -1,0 +1,14 @@
+.profile__input-info {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+@media screen and (max-width: 659px) {
+    .profile__input-info {
+        margin-bottom: 14px;
+        gap: 10px;
+
+    }
+}

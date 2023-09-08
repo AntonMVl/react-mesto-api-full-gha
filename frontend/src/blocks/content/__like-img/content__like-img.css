@@ -1,0 +1,9 @@
+.content__like-img {
+    z-index: 1;
+}
+
+.content__like-img:active {
+    background: url(../../../images/icons/likeActive.png);
+    z-index: 2;
+    opacity: 1;
+}

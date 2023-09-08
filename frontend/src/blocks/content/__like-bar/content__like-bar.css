@@ -1,0 +1,6 @@
+.content__like-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}

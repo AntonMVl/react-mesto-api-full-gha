@@ -1,0 +1,10 @@
+.content__box {
+    max-width: 100%;
+    min-height: 361px;
+    background-color: #fff;
+    overflow: hidden;
+    color: black;
+    border-radius: 10px;
+    position: relative;
+    
+}

@@ -1,0 +1,4 @@
+.content__like-img_type_active{
+    background-image: url(../../../../images/icons/likeActive.png);
+    z-index: 2;
+}

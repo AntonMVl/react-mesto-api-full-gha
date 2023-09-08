@@ -1,0 +1,9 @@
+.content__delete-button-icon {
+    display: block;
+    transition: opacity 0.4s;
+}
+
+.content__delete-button-icon:hover {
+    opacity: 50%;
+    cursor: pointer;
+}

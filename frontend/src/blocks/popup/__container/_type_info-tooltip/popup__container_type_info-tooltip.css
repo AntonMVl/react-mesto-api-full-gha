@@ -1,0 +1,13 @@
+.popup__container_type_info-tooltip {
+            min-width: 430px;
+            min-height: 330px;
+            padding: 60px 36px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 32px;
+            box-sizing: border-box;
+}

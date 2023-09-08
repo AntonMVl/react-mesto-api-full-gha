@@ -1,0 +1,13 @@
+.profile__editing-img {
+    width: 10px;
+    height: 10px;
+    
+}
+
+@media screen and (max-width: 659px) {
+    .profile__editing-img {
+        width: 7.5px;
+        height: 7.5px;
+        margin: 5.25px;
+    }
+}
