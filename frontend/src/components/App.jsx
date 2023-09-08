@@ -64,7 +64,10 @@ function App(props) {
     }, []);
 
     useEffect(() => {
-        Promise.all([api.getUser(), api.getCards()])
+        Promise.all([
+            api.getUser(localStorage.jwt),
+            api.getCards(localStorage.jwt),
+        ])
             .then(([userData, cardsData]) => {
                 setCurrentUser(userData);
                 setCards(cardsData);
@@ -77,7 +80,7 @@ function App(props) {
     }, []);
 
     function handleUpdateUser({ name, about }) {
-        api.updateProfileInfo(name, about)
+        api.updateProfileInfo(name, about, localStorage.jwt)
             .then((data) => {
                 setCurrentUser(data);
                 closeAllPopups();
@@ -88,7 +91,7 @@ function App(props) {
     }
 
     function handleDeleteCardSubmit(e) {
-        api.deleteCard(deleteCard)
+        api.deleteCard(deleteCard, localStorage.jwt)
             .then(() => {
                 setCards((cards) =>
                     cards.filter((card) => {
@@ -103,7 +106,7 @@ function App(props) {
     }
 
     function handleUpdateAvatar({ avatar }) {
-        api.updateAvatar(avatar)
+        api.updateAvatar(avatar, localStorage.jwt)
             .then((data) => {
                 setCurrentUser(data);
                 closeAllPopups();
@@ -114,7 +117,7 @@ function App(props) {
     }
 
     function handleAddPlaceSubmit({ name, link }) {
-        api.addCard(name, link)
+        api.addCard(name, link, localStorage.jwt)
             .then((card) => {
                 setCards([card, ...cards]);
                 closeAllPopups();
@@ -128,7 +131,7 @@ function App(props) {
         const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
         if (isLiked) {
-            api.deleteLike(card._id)
+            api.deleteLike(card._id, localStorage.jwt)
                 .then((newCard) => {
                     setCards((state) =>
                         state.map((c) => (c._id === card._id ? newCard : c))
@@ -138,7 +141,7 @@ function App(props) {
                     console.log(`Ошибка удаления лайка - ${error}`);
                 });
         } else {
-            api.addLike(card._id)
+            api.addLike(card._id, localStorage.jwt)
                 .then((newCard) => {
                     setCards((state) =>
                         state.map((c) => (c._id === card._id ? newCard : c))
