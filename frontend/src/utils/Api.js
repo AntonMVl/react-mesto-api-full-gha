@@ -96,6 +96,6 @@ class Api {
 }
 
 export const api = new Api({
-    url: 'https://api.mesto92.students.nomoredomainsicu.ru',
+    url: 'api.mesto92.students.nomoredomainsicu.ru',
 });
 
