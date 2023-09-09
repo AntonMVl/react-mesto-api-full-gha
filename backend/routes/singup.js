@@ -3,7 +3,7 @@ const { celebrate, Joi } = require('celebrate');
 const { httpRegex, emailRegex } = require('../utils/regex');
 const { createUser } = require('../controllers/users');
 
-router.use('/signup', celebrate({
+router.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),

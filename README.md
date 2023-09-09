@@ -10,7 +10,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.84.156
+IP 51.250.84.156
 
 Frontend https://test-front.students.nomoredomainsicu.ru
 
