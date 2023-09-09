@@ -1,4 +1,4 @@
-export const BASE_URL = 'api.mesto92.students.nomoredomainsicu.ru';
+export const BASE_URL = 'https://api.mesto92.students.nomoredomainsicu.ru';
 
 function checkResponse(res) {
         if (res.ok) {
