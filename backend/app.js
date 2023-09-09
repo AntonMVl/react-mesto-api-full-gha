@@ -16,7 +16,14 @@ const port = 3000;
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://test-front.students.nomoredomainsicu.ru',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
