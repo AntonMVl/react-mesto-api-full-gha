@@ -64,20 +64,22 @@ function App(props) {
     }, []);
 
     useEffect(() => {
-        Promise.all([
-            api.getUser(localStorage.jwt),
-            api.getCards(localStorage.jwt),
-        ])
-            .then(([userData, cardsData]) => {
-                setCurrentUser(userData);
-                setCards(cardsData);
-            })
-            .catch((error) => {
-                console.log(
-                    `Ошибка получения данных пользователя и карт - ${error}`
-                );
-            });
-    }, []);
+        if (loggedIn) {
+            Promise.all([
+                api.getUser(localStorage.jwt),
+                api.getCards(localStorage.jwt),
+            ])
+                .then(([userData, cardsData]) => {
+                    setCurrentUser(userData);
+                    setCards(cardsData);
+                })
+                .catch((error) => {
+                    console.log(
+                        `Ошибка получения данных пользователя и карт - ${error}`
+                    );
+                });
+        }
+    }, [loggedIn]);
 
     function handleUpdateUser({ name, about }) {
         api.updateProfileInfo(name, about, localStorage.jwt)
