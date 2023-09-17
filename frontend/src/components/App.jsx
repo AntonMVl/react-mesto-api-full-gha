@@ -157,7 +157,7 @@ function App(props) {
 
     useEffect(() => {
         tokenCheck();
-    }, []);
+    }, [navigate]);
 
     const tokenCheck = () => {
         if (localStorage.getItem('jwt')) {
