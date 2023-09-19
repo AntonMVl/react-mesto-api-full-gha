@@ -1,4 +1,5 @@
 const { HTTP_STATUS_OK, HTTP_STATUS_CREATED } = require('http2').constants;
+const { JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
@@ -9,9 +10,10 @@ const userModel = require('../models/user');
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
+  console.log(JWT_SECRET)
   return userModel.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
       res.send({ token });
     })
     .catch((err) => {
